@@ -1,0 +1,19 @@
+<h1>Request History</h1>
+  <table style='width:50%'>
+    <tr>
+      <th>Artist</th>
+      <th>Song</th>
+      <th>Genre</th>
+      <th>Request Source</th>
+      <th>In Library?</th>
+    </tr>
+    <% @requests.each do |request| %>
+    <tr>
+      <td> <%= (Artist.find_by id: request.artist_id).name %> </td>
+      <td> <%= (Song.find_by id: request.song_id).title %> </td>
+      <td> <%= (Genre.find_by id: request.genre_id).title %> </td>
+      <td> <%= (Source.find_by id: request.source_id).name %> </td>
+      <td> <%= request.in_system? %> </td>
+    </tr>
+    <% end %>
+  </table>

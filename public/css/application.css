@@ -73,3 +73,19 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+
+th {
+    text-align: center;
+}
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-spacing: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
