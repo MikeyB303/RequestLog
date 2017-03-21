@@ -4,7 +4,11 @@ get '/requests' do
 end
 
 get '/requests/new' do
-  erb :'/requests/new'
+  if request.xhr?
+    erb :'/requests/new', layout: false
+  else
+    erb :'/requests/new'
+  end
 end
 
 post '/requests' do
