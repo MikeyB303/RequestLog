@@ -5,17 +5,19 @@ end
 
 get '/requests/new' do
   if request.xhr?
-    erb :'/requests/new', layout: false
+    erb :'/requests/_new', layout: false
   else
     erb :'/requests/new'
   end
 end
 
 post '/requests' do
-  artist = Artist.create(name: params[:artist])
-  song = Song.create(title: params[:song])
-  genre = Genre.create(title: params[:genre])
-  source = Source.create(name: params[:source])
+  artist = new_artist_or_nah(params[:artist])
+  song = new_song_or_nah(params[:song])
+  genre = new_genre_or_nah(params[:genre])
+  source = new_source_or_nah(params[:source])
+
+
   request_deets = {
     :song_id => song.id,
     :artist_id => artist.id,
